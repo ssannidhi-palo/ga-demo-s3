@@ -1,0 +1,28 @@
+name: deploy-lambda
+
+on:
+  push:
+    tags:
+      - deploy**
+
+jobs:
+  Deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-southeast-1
+
+      - name: Deploy to Lambda
+        run: |
+          aws lambda update-function-code --function-name lambda-function --s3-bucket <artifact-bucket-name> --s3-key app-aws.jar
+
+      - name: Trigger Lambda
+        run: |
+          aws lambda invoke --function-name lambda-function --invocation-type RequestResponse
