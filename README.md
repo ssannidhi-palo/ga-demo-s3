@@ -66,3 +66,16 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+### Create S3 static hosting website
+
+$ hosting/website.sh
+
+Enter a name (A S3 hosting website will be created for you): <input a name>
+Enter the Access Key ID: <Input aws access key id>
+Enter the Secret Access Key: <Input aws secret access key>
+
+ Creating a S3 hosting website
+make_bucket: <>
+
+ Your website Url: http://training-demo-<name>.s3-website.ap-southeast-1.amazonaws.com
