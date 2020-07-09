@@ -1,0 +1,16 @@
+name: ci-cd-s3
+
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - deploy**
+
+jobs:
+  ci-cd:
+    runs-on: ubuntu-latest
+    name: Build & Deploy
+
+    steps:
+      - uses: actions/checkout@v2
