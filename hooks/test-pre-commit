@@ -1,0 +1,6 @@
+#!/bin/sh
+#
+#
+echo "\n==================\n"
+echo "This is a pre-commit-hook"
+echo "\n====================\n"
